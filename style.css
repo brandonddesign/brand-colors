@@ -42,6 +42,17 @@ body {
   box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
   border: 3px dashed transparent;
 }
+@media (max-width: 575.98px) {
+  .wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    border-radius: 2em;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+    border: 3px dashed transparent;
+  }
+}
 .content {
   width: 90%;
   margin: 2em auto;
