@@ -14,21 +14,28 @@
      crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="page-header">
-  <h1>Brand Colors</h1>
-  <p class="sub-title">A collection of major brands' hex and RGB color codes.</p>
-</div>
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search for a brand name...">
-</div>
-<div class="wrapper">
-  <div class="content">
-    <div id="brand-colors"></div>
+ <div class="container-fluid px-0">
+    <div class="row mx-0">
+      <nav class="col-md-2 sidebar">
+        <!-- Sidebar content goes here -->
+        <h1 class="brandcolors">Brand<strong>Colors</strong></h1>
+        <p class="mx-auto lead">
+          A collection of major brands' hex and RGB color codes.
+        </p>
+        <hr />
+          <input type="text" id="searchInput" class="form-control" placeholder="Search for a brand name...">
+        <hr />
+        <p>Brand Colours by <a href="https://www.himpfen.com/" title="Brandon Himpfen">Brandon Himpfen</a>. Brand names belong to their respected owners.</p>
+      </nav>
+
+      <main role="main" class="col-md-10">
+        <!-- Page content goes here -->
+        <div class="content">
+          <div id="brand-colors"></div>
+        </div>
+      </main>
+    </div>
   </div>
-</div>
-<div class="footer">
-  Brand Colours by <a href="https://www.himpfen.com/" title="Brandon Himpfen">Brandon Himpfen</a>. Brand names belong to their respected owners.
-</div>
   <script  src="./script.js"></script>
 </body>
 </html>
