@@ -1,30 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-}
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background-color: #ebf0f7;
-  margin: 2em;
+  background-color: #f8fafc;
+  margin: 0;
+  padding: 0;
 }
-.page-header {
-  margin: 2rem auto 1rem;
-  text-align: center;
-}
-.page-header h1 {
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-.page-header .sub-title {
-  font-size: 110%;
-}
+
 .search-container {
   width: 90%;
   max-width: 600px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
 }
 
 .search-container input[type="text"] {
@@ -33,30 +19,7 @@ body {
   font-size: 16px;
   border: 1px solid #ccc;
 }
-.wrapper {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  background: #fff;
-  border-radius: 2em;
-  box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-  border: 3px dashed transparent;
-}
-@media (max-width: 575.98px) {
-  .wrapper {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    background: #fff;
-    border-radius: 2em;
-    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-    border: 3px dashed transparent;
-  }
-}
-.content {
-  width: 90%;
-  margin: 2em auto;
-}
+
 .brand-row {
   display: flex;
   align-items: center;
@@ -92,4 +55,66 @@ body {
 .footer {
   text-align: center;
   margin: 2rem auto;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.content {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    height: 100vh;
+    border-right: 1px solid #dcdcdc;
+  }
+
+  .content {
+    margin-left: 20px; /* Width of the sidebar */
+  }
+}
+@media (max-width: 767px) {
+  .sidebar {
+    border-bottom: 1px solid #dcdcdc;
+  }
+}
+.copied-alert {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+.brandcolors {
+  font-weight: 700;
+  position: relative;
+  background: linear-gradient(
+    45deg,
+    #00205b,
+    #009f4d,
+    #efdf00,
+    #fe5000,
+    #e4002b,
+    #e4002b,
+    #da1884,
+    #a51890
+  );
+  background-size: 100% 50%;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.brandcolors strong {
+  font-weight: 700;
 }
