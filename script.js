@@ -1044,65 +1044,78 @@
   { name: "Zopim", colors: ["#FF9D3B"] }
         ];
 
-        var brandColorsContainer = document.getElementById('brand-colors');
-        var searchInput = document.getElementById('searchInput');
+var brandColorsContainer = document.getElementById('brand-colors');
+var searchInput = document.getElementById('searchInput');
+var copiedAlert = document.createElement('div');
+copiedAlert.className = 'copied-alert';
+document.body.appendChild(copiedAlert);
 
-        // Function to handle color copy
-        function copyColor(hexCode) {
-            navigator.clipboard.writeText(hexCode).then(function() {
-                alert('Color code copied to clipboard: ' + hexCode);
-            }, function() {
-                alert('Failed to copy color code to clipboard.');
-            });
-        }
+// Function to handle color copy
+function copyColor(hexCode) {
+  navigator.clipboard.writeText(hexCode).then(function() {
+    showCopiedAlert('Color code copied: ' + hexCode);
+  }, function() {
+    showCopiedAlert('Failed to copy color code to clipboard.');
+  });
+}
 
-        // Function to filter brands based on search input
-        function filterBrands(searchTerm) {
-            var filteredBrands = brands.filter(function(brand) {
-                return brand.name.toLowerCase().includes(searchTerm.toLowerCase());
-            });
-            renderBrands(filteredBrands);
-        }
+// Function to show copied alert
+function showCopiedAlert(message) {
+  copiedAlert.textContent = message;
+  copiedAlert.style.display = 'block';
 
-        // Function to render the brands and their colors
-        function renderBrands(brandsData) {
-            brandColorsContainer.innerHTML = '';
+  setTimeout(function() {
+    copiedAlert.style.display = 'none';
+  }, 3000); // Hide the alert after 3 seconds
+}
 
-            brandsData.forEach(function(brand) {
-                var brandRow = document.createElement('div');
-                brandRow.className = 'brand-row';
+// Function to filter brands based on search input
+function filterBrands(searchTerm) {
+  var filteredBrands = brands.filter(function(brand) {
+    return brand.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+  renderBrands(filteredBrands);
+}
 
-                var brandName = document.createElement('div');
-                brandName.className = 'brand-name';
-                brandName.textContent = brand.name;
-                brandRow.appendChild(brandName);
+// Function to render the brands and their colors
+function renderBrands(brandsData) {
+  brandColorsContainer.innerHTML = '';
 
-                var colorBoxContainer = document.createElement('div');
-                colorBoxContainer.className = 'color-box-container';
+  brandsData.forEach(function(brand) {
+    var brandRow = document.createElement('div');
+    brandRow.className = 'brand-row';
 
-                brand.colors.forEach(function(color) {
-                    var colorBox = document.createElement('div');
-                    colorBox.className = 'color-box';
-                    colorBox.style.backgroundColor = color;
+    var brandName = document.createElement('div');
+    brandName.className = 'brand-name';
+    brandName.textContent = brand.name;
+    brandRow.appendChild(brandName);
 
-                    // Add click event to copy the color
-                    colorBox.addEventListener('click', function() {
-                        copyColor(color);
-                    });
+    var colorBoxContainer = document.createElement('div');
+    colorBoxContainer.className = 'color-box-container';
 
-                    colorBoxContainer.appendChild(colorBox);
-                });
+    brand.colors.forEach(function(color) {
+      var colorBox = document.createElement('div');
+      colorBox.className = 'color-box';
+      colorBox.style.backgroundColor = color;
 
-                brandRow.appendChild(colorBoxContainer);
-                brandColorsContainer.appendChild(brandRow);
-            });
-        }
+      // Add click event to copy the color
+      colorBox.addEventListener('click', function() {
+        copyColor(color);
+      });
 
-        // Event listener for search input
-        searchInput.addEventListener('input', function(event) {
-            var searchTerm = event.target.value;
-            filterBrands(searchTerm);
-        });
+      colorBoxContainer.appendChild(colorBox);
+    });
 
-        // Initial rendering of all brands
-        renderBrands(brands);
+    brandRow.appendChild(colorBoxContainer);
+    brandColorsContainer.appendChild(brandRow);
+  });
+}
+
+// Event listener for search input
+searchInput.addEventListener('input', function(event) {
+  var searchTerm = event.target.value;
+  filterBrands(searchTerm);
+});
+
+// Initial rendering of all brands
+renderBrands(brands);
