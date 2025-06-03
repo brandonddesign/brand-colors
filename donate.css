@@ -1,0 +1,63 @@
+    /* Floating container positioned 1.5rem from bottom/right */
+    .floating-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 1050;
+    }
+
+    /* Button styled with custom color #0033a1 */
+    .btn-donate {
+      background-color: #0033a1;
+      border-color: #0033a1;
+      color: #fff;
+      border-radius: 50px;
+      padding: 0.8rem 1.2rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-donate:hover,
+    .btn-donate:focus {
+      background-color: #002680;
+      border-color: #002680;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+    }
+
+    /* Icon spacing inside the button */
+    .btn-donate .btn-icon {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* Responsive adjustments for small screens */
+    @media (max-width: 576px) {
+      .floating-btn {
+        bottom: 1rem;
+        right: 1rem;
+      }
+      .btn-donate {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+      .btn-donate .btn-icon {
+        margin-right: 0.4rem;
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Styles for crypto address blocks */
+    .crypto-address {
+      font-family: monospace;
+      background-color: #f8f9fa;
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
